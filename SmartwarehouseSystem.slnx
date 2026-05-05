@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../SmartWarehouseSystem.Tests/SmartWarehouseSystem.Tests.csproj" />
+  <Project Path="../SmartWarehouseUI_New/SmartWarehouseUI_New.csproj" />
+  <Project Path="SmartwarehouseSystem.csproj" />
+</Solution>
