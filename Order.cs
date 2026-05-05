@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -99,16 +99,16 @@ namespace SmartWarehouseUI_New
 
                     int orderId = (int)cmd1.LastInsertedId;
 
-                    // INSERT INTO ORDER DETAILS (FIXED: quantity)
+                    // ✅ FIXED HERE: quantity → qty
                     MySqlCommand cmd2 = new MySqlCommand(
-                        "INSERT INTO order_details (order_id, product_id, quantity) VALUES (@oid, @pid, @qty)", conn);
+                        "INSERT INTO order_details (order_id, product_id, qty) VALUES (@oid, @pid, @qty)", conn);
 
                     cmd2.Parameters.AddWithValue("@oid", orderId);
                     cmd2.Parameters.AddWithValue("@pid", productId);
                     cmd2.Parameters.AddWithValue("@qty", orderQty);
 
                     cmd2.ExecuteNonQuery();
-                    
+
                     // UPDATE STOCK
                     MySqlCommand updateStock = new MySqlCommand(
                         "UPDATE products SET qty = qty - @q WHERE product_id = @pid", conn);
